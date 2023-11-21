@@ -1,0 +1,41 @@
+{% extends 'base-admin.html' %}
+
+{% block content %}
+    <div class="container bg-dark-subtle px-3 py-2 my-2">
+        <h1 class="mb-2 text-center">Lista Planes de Telefonia</h1>
+        <table class="table text-center table-dark table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Gigas</th>
+                    <th scope="col">Minutos</th>
+                    <th scope="col">Precio Mensual</th>
+                    <th scope="col">Tipo Telefonia</th>
+                    <th scope="col">Tiempo Contrato</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for plan in planesTelefonia %}
+                <tr>
+                    <td>{{plan.id}}</td>
+                    <td>{{plan.nombre}}</td>
+                    <td>{{plan.gigas}}</td>
+                    <td>{{plan.minutos}}</td>
+                    <td>{{plan.precio_mensual}}</td>
+                    <td>{{plan.tipo_telefonia}}</td>
+                    <td>{{plan.tiempo_contrato}}</td>
+                    <td>{{plan.descripcion}}</td>
+                    <td>
+                        <a href="/editar_plan_telefonia/{{plan.id}}" class="btn btn-success">Editar</a>
+                        <a href="/eliminarPlanTelefonia/{{plan.id}}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
+    

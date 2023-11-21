@@ -1,0 +1,43 @@
+{% extends 'base-admin.html' %}
+
+{% block content %}
+    <div class="container bg-dark-subtle px-3 py-2 my-2">
+        <h1 class="mb-2 text-center">Lista de Viajes</h1>
+        <table class="table text-center table-dark table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio Mensual</th>
+                    <th scope="col">Canales SD</th>
+                    <th scope="col">Canales HD</th>
+                    <th scope="col">Canales Adicionales</th>
+                    <th scope="col">Tiempo Contrato</th>
+                    <th scope="col">Tipo Television</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for plan in planesTelevision %}
+                <tr>
+                    <td>{{plan.id}}</td>
+                    <td>{{plan.nombre}}</td>
+                    <td>{{plan.precio_mensual}}</td>
+                    <td>{{plan.canales_SD}}</td>
+                    <td>{{plan.canales_HD}}</td>
+                    <td>{{plan.canales_adicionales}}</td>
+                    <td>{{plan.tiempo_contrato}}</td>
+                    <td>{{plan.tipo_television}}</td>
+                    <td>{{plan.descripcion}}</td>
+                    <td>
+                        <a href="/editar_plan_television/{{plan.id}}" class="btn btn-success">Editar</a>
+                        <a href="/eliminarPlanTelevision/{{plan.id}}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
+    

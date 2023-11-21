@@ -1,0 +1,39 @@
+{% extends 'base-admin.html' %}
+
+{% block content %}
+    <div class="container bg-dark-subtle px-3 py-2 my-2">
+        <h1 class="mb-2 text-center">Lista de Viajes</h1>
+        <table class="table text-center table-dark table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">RUT</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Numero</th>
+                    <th scope="col">Comuna</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in usuarios %}
+                <tr>
+                    <td>{{u.rut}}</td>
+                    <td>{{u.nombre}}</td>
+                    <td>{{u.apellido}}</td>
+                    <td>{{u.correo}}</td>
+                    <td>{{u.numero}}</td>
+                    <td>{{u.comuna}}</td>
+                    <td>{{u.direccion}}</td>
+                    <td>
+                        <a href="/editar_usuario/{{u.id}}" class="btn btn-success">Editar</a>
+                        <a href="/eliminarUsuario/{{u.id}}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
+    

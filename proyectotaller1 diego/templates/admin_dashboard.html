@@ -1,54 +1,63 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    {% load static %}
-    <meta charset="utf-8" />
-    <title>SurWave Telecom: Innovación en Telecomunicaciones </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
-</head>
-<body>
-    {% block navbar %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container px-5">
-            <a class="navbar-brand" href="{% url 'index' %}">SurWave Telecom</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Navigation Items -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'index' %}">Principal</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Acerca de Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'planes_internet' %}">Editar Planes Internet</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'planes_television' %}">Editar Planes Televisión</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'planes_telefonia' %}">Editar Planes Telefonía</a></li>
-                    <li class="nav-item dropdown">
-                    </li>
-                </ul>
-                <!-- User Account Menu -->
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="user-initials">U</span> {{rut}}
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#!">Perfil</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#!">Cerrar Sesión</a></li>
-                        </ul>
-                    </li>
-                </ul>
+{% extends 'base-admin.html' %}
+{% block content %}
+    <h1 class="h1 text-center py-4">Bienvenido, Administrador: {{username}}</h1>
+    <div class="card m-5">
+        <div class="container">
+            <div class="card-body">
+                <div class="row-lg">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <a href="{% url 'formUsuario' %}">
+                                <button type="button" class="btn btn-outline-dark btn-lg w-100">Agregar Usuario</button>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="{% url 'formPlanInternet' %}">
+                                <button type="button" class="btn btn-outline-dark btn-lg w-100">Agregar Plan Internet</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <a href="{% url 'formPlanTelevision' %}">
+                                <button type="button" class="btn btn-outline-dark btn-lg w-100">Agregar Plan Television</button>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="{% url 'formPlanTelefonia' %}">
+                                <button type="button" class="btn btn-outline-dark btn-lg w-100">Agregar Plan Telefonia</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <a href="{% url 'listaUsuarios' %}">
+                                <button type="button" class="btn btn-outline-dark btn-lg w-100">Ver Usuarios</button>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="{% url 'listaPlanesInternet' %}">
+                                <button type="button" class="btn btn-outline-dark btn-lg w-100">Ver Planes Internet</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <a href="{% url 'listaPlanesTelevision' %}">
+                                <button type="button" class="btn btn-outline-dark btn-lg w-100">Ver Planes Television</button>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="{% url 'listaPlanesTelefonia' %}">
+                                <button type="button" class="btn btn-outline-dark btn-lg w-100">Ver Planes Telefonia</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
-    {% endblock navbar %}
-
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
-</body>
-</html>
+{% endblock content %}
 

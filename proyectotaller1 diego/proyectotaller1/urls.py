@@ -25,6 +25,10 @@ urlpatterns = [
     path('empleado_dashboard/', views.empleado_dashboard, name='empleado_dashboard'),
     path('editar_perfil/', views.editar_perfil, name="editar_perfil"),
     path('enviar_comentario/', views.enviar_comentario, name="enviar_comentario"),
+    path('agregarUsuarios/', views.formUsuario, name="formUsuario"),
+    path('agregarPlanInternet/', views.formPlanInternet, name="formPlanInternet"),
+    path('agregarPlanTelevision/', views.formPlanTelevision, name="formPlanTelevision"),
+    path('agregarPlanTelefonia/', views.formPlanTelefonia, name="formPlanTelefonia"),
     path('listaUsuarios/', views.listaUsuarios, name='listaUsuarios'),
     path('listaPlanesInternet/', views.listaPlanesInternet, name='listaPlanesInternet'),
     path('listaPlanesTelevision/', views.listaPlanesTelevision, name='listaPlanesTelevision'),
@@ -32,9 +36,15 @@ urlpatterns = [
     path('editar_plan_telefonia/<int:id>', views.editar_plan_telefonia, name='editar_plan_telefonia'),
     path('editar_plan_television/<int:id>', views.editar_plan_television, name='editar_plan_television'),
     path('editar_plan_internet/<int:id>', views.editar_plan_internet, name='editar_plan_internet'),
-    path('editarUsuarios/<int:id>', views.editarUsuarios, name='editarUsuarios'),
-    path('eliminarUsuarios/<int:id>', views.eliminarUsuarios, name='eliminarUsuarios'),
+    path('editar_usuario/<int:id>', views.editar_usuario, name='editar_usuario'),
+    path('eliminarUsuario/<int:id>', views.eliminarUsuario, name='eliminarUsuario'),
     path('eliminarPlanInternet/<int:id>', views.eliminarPlanInternet, name='eliminarPlanInternet'),
     path('eliminarPlanTelevision/<int:id>', views.eliminarPlanTelevision, name='eliminarPlanTelevision'),
     path('eliminarPlanTelefonia/<int:id>', views.eliminarPlanTelefonia, name='eliminarPlanTelefonia'),
+    path('formUsuario/', views.formUsuario, name='formUsuario'),
+    path('formPlanTelefonia/', views.formPlanTelefonia, name='formPlanTelefonia'),
+    path('formPlanTelevision/', views.formPlanTelevision, name='formPlanTelevision'),
+    path('formPlanInternet/', views.formPlanInternet, name='formPlanInternet'),
+
+
 ]

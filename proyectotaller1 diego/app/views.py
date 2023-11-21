@@ -30,7 +30,7 @@ def listaPlanesTelevision(request):
     listaPlanesTelevision = Plan_Television.objects.all()
     return render(request, "listaPlanesTelevision.html", {"planesTelevision": listaPlanesTelevision})
 
-def editar_plan_internet(request):
+def editar_plan_internet(request, id):
     planInternet = Plan_Internet.objects.get(id=id)
     if request.method == 'GET':
         formulario = FormPlanInternet(instance=planInternet)
@@ -43,7 +43,7 @@ def editar_plan_internet(request):
         return redirect('listaPlanesInternet')
     return render(request, 'editar_plan_internet.html')
 
-def editar_plan_television(request):
+def editar_plan_television(request, id):
     planTelevision = Plan_Television.objects.get(id=id)
     if request.method == 'GET':
         formulario = FormPlanTelevision(instance=planTelevision)
@@ -56,7 +56,7 @@ def editar_plan_television(request):
         return redirect('listaPlanesTelevision')
     return render(request, 'editar_plan_television.html')
 
-def editar_plan_telefonia(request):
+def editar_plan_telefonia(request, id):
     planTelefonia = Plan_Telefonia.objects.get(id=id)
     if request.method == 'GET':
         formulario = FormPlanTelefonia(instance=planTelefonia)
@@ -69,19 +69,19 @@ def editar_plan_telefonia(request):
         return redirect('listaPlanesTelefonia')
     return render(request, 'editar_plan_telefonia.html')
 
-def editarUsuarios(request,id):
+def editar_usuario(request,id):
     usuario = Usuario.objects.get(id=id)
     if request.method == 'GET':
         formulario = FormUsuario(instance=usuario)
 
-        return render(request, 'editarUsuarios.html',  {"form":formulario, "id": id})
+        return render(request, 'editar_usuario.html',  {"form":formulario, "id": id})
     elif request.method == 'POST':
         formulario = FormUsuario(request.POST, instance=usuario)
         if formulario.is_valid():
             formulario.save()
         return redirect('listaUsuarios')
 
-def eliminarUsuarios(request, id):
+def eliminarUsuario(request, id):
     usuario = Usuario.objects.get(id=id)
     usuario.delete()
     listaUsuarios = Usuario.objects.all()
@@ -93,13 +93,13 @@ def eliminarPlanInternet(request, id):
     listaPlanesInternet = Plan_Internet.objects.all()
     return render(request, 'listaPlanesInternet.html', {"listaPlanesInternet": listaPlanesInternet})
 
-def eliminarTelefonia(request, id):
+def eliminarPlanTelefonia(request, id):
     planTelefonia = Plan_Telefonia.objects.get(id=id)
     planTelefonia.delete()
     listaPlanesTelefonia = Plan_Telefonia.objects.all()
     return render(request, 'listaPlanesTelefonia.html', {"listaPlanesTelefonia": listaPlanesTelefonia})
 
-def eliminarTelevision(request, id):
+def eliminarPlanTelevision(request, id):
     planTelevision = Plan_Television.objects.get(id=id)
     planTelevision.delete()
     listaPlanesTelevision = Plan_Television.objects.all()
@@ -113,9 +113,9 @@ def cerrar_sesion(request):
             del sesion["planes"]
         elif "administrador" in sesion:
             del sesion["administrador"]
-        return redirect('inicioSesion')
+        return redirect('login')
     except:
-        return redirect('inicioSesion')
+        return redirect('login')
     
 def es_administrador(user):
     return user.is_authenticated and user.tipo_usuario.nombre == 'Administrador'
@@ -181,7 +181,7 @@ def registro(request):
         if nuevoRegistro:
             nuevoRegistro.save()
             messages.success(request, 'Registro exitoso. Por favor, inicia sesión.')
-            return redirect('inicio_sesion')
+            return redirect('login')
         else:
             messages.error(request, 'Error en el formulario. Verifica los datos ingresados.')
             return render(request, 'registro_usuario.html', {"error": 'Error en el formulario. Verifica los datos ingresados.'})

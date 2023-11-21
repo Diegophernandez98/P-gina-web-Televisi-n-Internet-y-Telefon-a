@@ -25,7 +25,7 @@ class FormPlanTelefonia(forms.ModelForm):
 class FormUsuarioUsername(forms.ModelForm):
     class Meta:
         model = Usuario
-        fields = ['id', 'username']
+        fields = ['id', 'nombre']
         widgets = {
             'id': forms.HiddenInput(),
         }
