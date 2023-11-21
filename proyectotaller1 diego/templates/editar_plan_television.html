@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	{% load static %}
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/main.css" />
+
+</head>
+<body style="background-color: #a5aceb">
+	<div>
+		<header>
+			<img class="logo" src="#" alt="Logo">
+			<nav class="nav" id="nav">
+				<ul class="nav-list">
+					<li><a href="{% url 'login' %}">Inicio</a></li>
+					<li><a href="{% url 'login' %}">Servicios</a></li>
+					<li><a href="{% url 'editar_perfil' %}">Editar Datos de Cuenta</a></li>
+					<li><a href="{% url 'enviar_comentario' %}">Enviar Comentarios</a></li>
+					<li><a href="{% url 'login' %}">Cerrar Sesión</a></li>
+				</ul>
+			</nav>
+		</header>
+	</div>
+    <div class="container mt-5">
+        <h2 class="mb-4">Editar Plan de Telefonía</h2>
+        <form>
+            <div class="form-group">
+                <label for="nombrePlan">Nombre del Plan</label>
+                <input type="text" class="form-control" id="nombrePlan" placeholder="Nombre del Plan">
+            </div>
+            <div class="form-group">
+                <label for="valorPlan">Valor del Plan</label>
+                <input type="text" class="form-control" id="valorPlan" placeholder="Valor del Plan">
+            </div>
+            <div class="form-group">
+                <label for="tiempoContrato">Tiempo de Contrato</label>
+                <input type="text" class="form-control" id="tiempoContrato" placeholder="Tiempo de Contrato">
+            </div>
+            <div class="form-group">
+                <label for="nombrePlan">Descripcion</label>
+                <input type="text" class="form-control" id="nombrePlan" placeholder="Nombre del Plan">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </form>
+    </div>
+    
+    <!-- Enlace a los scripts de Bootstrap y jQuery desde CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

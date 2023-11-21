@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/mainplanS.css" />
+    <title>Empresa</title>
+</head>
+<body style="background-color: #a5aceb">
+    <!--menu barra superior-->
+	<div>
+		<header>
+
+			<img class="logo" src="/static/images/gatogolpe.jpg" alt="Logo">
+			<nav class="nav" id="nav">
+				<ul class="nav-list">
+					<li><a href="#">Inicio</a></li>
+					<li><a href="#">Quiénes somos</a></li>
+					<li><a href="#">Servicios</a></li>
+					<li><a href="#">Qué hacemos</a></li>
+					<li><a href="#">Contacto</a></li>
+					<li><a href="{% url 'login' %}">Iniciar sesión</a></li>
+					<li><a href="#">Registrarse</a></li>
+				</ul>
+			</nav>
+		</header>
+	</div>
+
+    <!--cards planes-->
+	<div class="title-cards">
+		<h2>Planes de telefonía móvil</h2>
+	</div>
+
+    <div class="container-card">
+        <div class="card" style="background-color: #5564eb;">
+            <div class="contenido-card">
+                <h3>PLAN S</h3>
+                <p>
+
+                </p>
+            </div>
+        </div>    
+    </div>
+
+    <div>
+        <div class="title-cards-option">
+            <h6>Te podría interesar</h6>
+        </div>
+        <div class="container-card-option">
+        <br>	
+        <div class="card-option"style="background-color: #5564eb;">
+            <div class="contenido-card-option">
+                <h3>PLAN M</h3>
+                <p>
+                    <img src="/static/images/gatogolpe.jpg" alt="" />
+                </p>
+                <a href="#"style="background-color:#3040d0">Lo quiero!</a>
+            </div>
+        </div>
+        <br>
+        <div class="card-option" style="background-color: #5564eb;">
+            <div class="contenido-card-option">
+                <h3>PLAN L</h3>
+                <p>
+                    <img src="/static/images/gatogolpe.jpg" alt="" />
+                </p>
+                <a href="#"style="background-color:#3040d0">Lo quiero!</a>
+            </div>
+        </div>
+        <br>
+        <div class="card-option" style="background-color: #5564eb;">
+            <div class="contenido-card-option">
+                <h3>PLAN XL</h3>
+                <p>
+                    <img src="/static/images/gatogolpe.jpg" alt="" />
+                </p>
+                <a href="#"style="background-color:#3040d0">Lo quiero!</a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

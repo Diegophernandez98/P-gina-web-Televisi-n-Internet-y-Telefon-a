@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+    <!-- Enlace a Bootstrap CDN para obtener estilos CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<div>
+		<header>
+			<img class="logo" src="#" alt="Logo">
+			<nav class="nav" id="nav">
+				<ul class="nav-list">
+					<li><a href="{% url 'login' %}">Inicio</a></li>
+					<li><a href="{% url 'login' %}">Servicios</a></li>
+					<li><a href="{% url 'editar_perfil' %}">Editar Datos de Cuenta</a></li>
+					<li><a href="{% url 'enviar_comentario' %}">Enviar Comentarios</a></li>
+					<li><a href="{% url 'login' %}">Cerrar Sesión</a></li>
+				</ul>
+			</nav>
+		</header>
+	</div>
+<div class="container mt-5">
+    <h2 class="mb-4">Editar Perfil</h2>
+    <form method='post'>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="apellido">Apellido</label>
+                <input type="text" class="form-control" id="apellido" placeholder="Apellido">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="correo">Correo</label>
+                <input type="email" class="form-control" id="correo" placeholder="Correo">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="telefono">Teléfono Celular</label>
+                <input type="tel" class="form-control" id="telefono" placeholder="Teléfono Celular">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="region">Región</label>
+                <input type="text" class="form-control" id="region" placeholder="Región">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="comuna">Comuna</label>
+                <input type="text" class="form-control" id="comuna" placeholder="Comuna">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input type="text" class="form-control" id="direccion" placeholder="Dirección">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" class="form-control" id="contrasena" placeholder="Contraseña">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="confirmarContrasena">Confirmar Contraseña</label>
+                <input type="password" class="form-control" id="confirmarContrasena" placeholder="Confirmar Contraseña">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    </form>
+</div>
+
+<!-- Enlace a los scripts de Bootstrap y jQuery desde CDN -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

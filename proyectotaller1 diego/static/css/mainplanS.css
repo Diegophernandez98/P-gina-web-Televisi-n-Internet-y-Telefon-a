@@ -1,0 +1,159 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*card detalle plan*/
+.container-card{
+	width: 100%;
+	display: flex;
+	max-width: 500px;
+	margin: auto;
+    position: relative;
+}
+.title-cards{
+	width: 100%;
+	max-width: 1080px;
+	margin: auto;
+	padding: 70px;
+	margin-top: 20px;
+	text-align: center;
+	color: black;
+	font-size: 30px;
+}
+.card{
+	width: 100%;
+	margin-top: 5px;
+	border-radius: 6px;
+	background:#ffffff;
+    background-size: 200px;
+	box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+.card .contenido-card{
+	padding: 15px;
+	text-align: center;
+}
+
+/*card otras opciones card*/
+.card-option{
+	width: 100%;
+	margin: auto;
+	border-radius: 6px;
+	overflow: hidden;
+	background:#ffffff;
+	box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+	transition: all 400ms ease-out;
+	cursor: default;
+	flex-direction: column;
+}
+.card-option:hover{
+	box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+	transform: translateY(-3%);
+}
+
+.card-option .contenido-card-option{
+	padding: 50px;
+	text-align: center;
+	
+}
+.card-option .contenido-card-option h3{
+	margin-bottom: 15px;
+	color: black;
+}
+.container-card-option{
+	width: 100%;
+	display: flex;
+    padding-top: 20px;
+	max-width: 1100px;
+	margin: auto;
+}
+.title-cards-option{
+    width: 100%;
+	max-width: 1080px;
+	padding: 10px;
+	margin-top: 10px;
+	text-align: left;
+	color: black;
+	font-size: 30px;
+}
+.card-option img{
+	width: 100%;
+	height: 1080px;
+	box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+}
+
+.card-option .contenido-card-option a{
+	display: inline-block;
+	padding: 10px;
+	margin-top: 10px;
+	text-decoration: none;
+	color: black;
+	border: 1px solid #3040d0;
+	border-radius: 4px;
+	transition: all 400ms ease;
+	margin-bottom: 5px;
+}
+.card-option .contenido-card-option a:hover{
+	background: #4169e1;
+	color: #fff;
+}
+.card-option  .contenido-card-option  p{
+	line-height: 1.8;
+	color: black;
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+/*menu barra superior*/
+
+nav {
+	float: center;
+    margin: 30px;
+}
+  
+nav ul li {
+	list-style:none;
+	margin-left: 25px;
+	padding: 10px;
+	float: left;
+	position:relative;
+}
+  
+nav ul li a {
+	text-decoration: none;
+	color: #191919;
+	font-weight: bold;
+}
+  
+nav ul li a::before {
+	display: block;
+	content: '';
+	width: 0%;
+	background: #444;
+	height: 5px;
+	top:0;
+	position: absolute;
+	transition: width 0.2s;
+}
+  
+nav ul li a:hover::before {
+	width: 100%;
+}
+
+header img {
+  width: 50px;
+  height: 50px;
+  float: left;
+  padding: 8px;
+  border-radius: 30%;
+  border: 1px solid rgba(255, 255, 255, 0)}
+
+nav button {
+	list-style:none;
+	margin-left: 25px;
+	padding: 10px 5px;
+	float: left;
+	position:relative;
+}

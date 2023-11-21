@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="container">
+    <h2>Resumen de tu selección:</h2>
+    <div>
+        <h3>{{ plan.nombre }}</h3>
+        <p>Precio mensual: {{ plan.precio_mensual }}</p>
+        <p>Canales SD: {{ plan.canales_SD }}</p>
+        <p>Canales HD: {{ plan.canales_HD }}</p>
+        <p>Canales Adicionales: {{ plan.canales_adicionales }}</p>
+        <p>Tiempo de Contrato: {{ plan.tiempo_contrato }}</p>
+        <p>Tipo Television: {{ plan.tipo_television }}</p>
+        <p>Descripción: {{ plan.descripcion }}</p>
+    </div>
+    
+    <a href="{% url 'confirmar_suscripcion' %}" class="btn btn-success">Confirmar Suscripción</a>
+    <a href="{% url 'index' %}" class="btn btn-success">Agregar Más Planes</a>
+</div>
+{% endblock %}

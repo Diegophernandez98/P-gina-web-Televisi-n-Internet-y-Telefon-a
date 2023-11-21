@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="container">
+    <h2>Resumen de tu selección:</h2>
+    <div>
+        <h3>{{ plan.nombre }}</h3>
+        <p>Velocidad: {{ plan.velocidad }}</p>
+        <p>Precio mensual: {{ plan.precio_mensual }}</p>
+        <p>Tiempo de Contrato: {{ plan.tiempo_contrato }}</p>
+        <p>Descripcion: {{ plan.descripcion }}</p>
+    </div>
+    
+    <a href="{% url 'confirmar_suscripcion' %}" class="btn btn-success">Confirmar Suscripción</a>
+    <a href="{% url 'index' %}" class="btn btn-success">Agregar Más Planes</a>
+</div>
+{% endblock %}

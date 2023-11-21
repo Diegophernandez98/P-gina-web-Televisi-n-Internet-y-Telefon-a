@@ -1,0 +1,96 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Contenido específico de planesInternet.html -->
+<div class="container mt-5 mb-5">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <!-- Tarjeta 1 -->
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    Plan S
+                </div>
+                <img src="{% static 'images/S.png' %}" class="card-img-top" alt="Imagen Tarjeta 1" placeholder="Espacio para imagen">
+                <div class="card-body">
+                    <ul class="card-text">
+                        <li style="margin-bottom: 10px;">Telefonía móvil 125 gigas + minutos libres</li>
+                        <li style="margin-bottom: 10px;">$5.980/mes</li>
+                        <li style="margin-bottom: 10px;">Primer mes costo $0</li>
+                        <li style="margin-bottom: 10px;">apps libres: WhatsApp, Instagram, Facebook, X, Spotify</li>
+					</ul>
+				</div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'resumen_plan_telefonia' plan_id=1 %}" class="btn btn-primary" class="btn btn-primary">Lo quiero!</a>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta 2 -->
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    Plan M
+                </div>
+                <img src="{% static 'images/M.png' %}" class="card-img-top" alt="Imagen Tarjeta 2" placeholder="Espacio para imagen">
+                <div class="card-body">
+                    <ul class="card-text">
+                        <li style="margin-bottom: 10px;">Telefonía móvil 250 gigas + minutos libres</li>
+                        <li style="margin-bottom: 10px;">$10.590/mes</li>
+                        <li style="margin-bottom: 10px;">Primer mes costo $0</li>
+                        <li style="margin-bottom: 10px;">apps libres: WhatsApp, Instagram, Facebook, X, Spotify</li>
+						<li style="margin-bottom: 10px;">roaming libre: whatsapp</li>
+					</ul>	
+				</div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'resumen_plan_telefonia' plan_id=2 %}" class="btn btn-primary">Lo quiero!</a>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta 3 -->
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    Plan L
+                </div>
+                <img src="{% static 'images/L.png' %}" class="card-img-top" alt="Imagen Tarjeta 3" placeholder="Espacio para imagen">
+                <div class="card-body">
+                    <ul class="card-text">
+                        <ul class="card-text">
+							<li style="margin-bottom: 10px;">Telefonía móvil 400 gigas + minutos libres</li>
+							<li style="margin-bottom: 10px;">$15.500/mes</li>
+							<li style="margin-bottom: 10px;">Primer mes costo $0</li>
+							<li style="margin-bottom: 10px;">apps libres: WhatsApp, Instagram, Facebook, X, Spotify</li>
+							<li style="margin-bottom: 10px;">roaming libre: Whatsapp, Maps, Uber, Gmail</li>
+						</ul>
+					</div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'resumen_plan_telefonia' plan_id=3 %}" class="btn btn-primary text-center">Lo quiero!</a>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta 4 -->
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    Plan XL
+                </div>
+                <img src="{% static 'images/xl.png' %}" class="card-img-top" alt="Imagen Tarjeta 4" placeholder="Espacio para imagen">
+                <div class="card-body">
+                    <ul class="card-text">
+                        <ul class="card-text">
+							<li style="margin-bottom: 10px;">Telefonía móvil gigas libres + minutos libres</li>
+							<li style="margin-bottom: 10px;">$24.990/mes</li>
+							<li style="margin-bottom: 10px;">Primer mes costo $0</li>
+							<li style="margin-bottom: 10px;">apps libres: WhatsApp, Instagram, Facebook, X, Spotify</li>
+							<li style="margin-bottom: 10px;">roaming libre: Whatsapp, Maps, Uber, Gmail, +1 giga adicional</li>
+						</ul>
+					</div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'resumen_plan_telefonia' plan_id=4 %}" class="btn btn-primary">Lo quiero!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

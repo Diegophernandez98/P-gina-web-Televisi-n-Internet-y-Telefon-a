@@ -1,0 +1,99 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Contenido específico de planesInternet.html -->
+<div class="container mt-5 mb-5">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <!-- Tarjeta 1 -->
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    Plan S
+                </div>
+                <img src="{% static 'images/S.png' %}" class="card-img-top" alt="Imagen Tarjeta 1" placeholder="Espacio para imagen">
+                <div class="card-body">
+                    <ul class="card-text">
+                        <li style="margin-bottom: 10px;">Televisión 70sd + 58hd</li>
+                        <li style="margin-bottom: 10px;">$13.990/mes</li>
+                        <li style="margin-bottom: 10px;">6 meses +  Grabación de programas</li>
+                        <li style="margin-bottom: 10px;">Asistencia técnica 7 días a la semana</li>
+					</ul>
+				</div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'resumen_plan_television' plan_id=1 %}" class="btn btn-primary" class="btn btn-primary">Lo quiero!</a>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta 2 -->
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    Plan M
+                </div>
+                <img src="{% static 'images/M.png' %}" class="card-img-top" alt="Imagen Tarjeta 2" placeholder="Espacio para imagen">
+                <div class="card-body">
+                    <ul class="card-text">
+                        <li style="margin-bottom: 10px;">Televisión 86sd + 71hd</li>
+                        <li style="margin-bottom: 10px;">$17.990/mes</li>
+                        <li style="margin-bottom: 10px;">8 meses +  Grabación de programas</li>
+                        <li style="margin-bottom: 10px;">Asistencia técnica 7 días a la semana</li>
+					</ul>	
+				</div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'resumen_plan_television' plan_id=2 %}" class="btn btn-primary">Lo quiero!</a>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta 3 -->
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    Plan L
+                </div>
+                <img src="{% static 'images/L.png' %}" class="card-img-top" alt="Imagen Tarjeta 3" placeholder="Espacio para imagen">
+                <div class="card-body">
+                    <ul class="card-text">
+                        <ul class="card-text">
+                            <li style="margin-bottom: 10px;">Televisión 70sd + 91hd</li>
+                            <li style="margin-bottom: 10px;">$22.990/mes</li>
+                            <li style="margin-bottom: 10px;">12 meses +  Grabación de programas</li>
+                            <li style="margin-bottom: 10px;">Acceso a contenido bajo demanda</li>
+                            <li style="margin-bottom: 10px;">HBO Max</li>
+                            <li style="margin-bottom: 10px;">Asistencia técnica 24/7</li>
+                            <li style="margin-bottom: 10px;">Instalación Gratis</li>
+                        </ul>
+					</div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'resumen_plan_television' plan_id=3 %}" class="btn btn-primary text-center">Lo quiero!</a>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta 4 -->
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    Plan XL
+                </div>
+                <img src="{% static 'images/xl.png' %}" class="card-img-top" alt="Imagen Tarjeta 4" placeholder="Espacio para imagen">
+                <div class="card-body">
+                    <ul class="card-text">
+                        <ul class="card-text">
+                            <li style="margin-bottom: 10px;">Televisión 78sd + 101hd</li>
+                            <li style="margin-bottom: 10px;">$25.990/mes</li>
+                            <li style="margin-bottom: 10px;">12 meses +  Grabación de programas</li>
+                            <li style="margin-bottom: 10px;">Acceso a contenido bajo demanda</li>
+                            <li style="margin-bottom: 10px;">HBO Max + Universal</li>
+                            <li style="margin-bottom: 10px;">Asistencia técnica 24/7</li>
+                            <li style="margin-bottom: 10px;">Instalación Gratis</li>
+                        </ul>
+					</div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'resumen_plan_television' plan_id=4 %}" class="btn btn-primary">Lo quiero!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
