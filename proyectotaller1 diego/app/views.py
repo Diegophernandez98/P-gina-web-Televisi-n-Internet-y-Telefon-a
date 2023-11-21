@@ -204,15 +204,9 @@ def login_view(request):
             return render(request, "index.html", {'rut':getUsuario})
         
         elif usuario and usuario.rol_id==2:
-            # Para agregar un valor dentro de la SESSION, lo hacemos como si fuera un diccionario
-            request.session["empleado"] = getUsuario
-            print(f"El usuario {getUsuario} ha iniciado sesión.")
-            return render('empleado_dashboard.html',{'rut':getUsuario})
-        
-        elif usuario and usuario.rol_id==3:
             request.session["administrador"] = getUsuario
             print(f"El usuario {getUsuario} ha iniciado sesión.")
-            return render(request, 'admin_dashboard.html',{'rut':getUsuario})
+            return render(request, 'admin_dashboard.html',{'user':usuario})
         
         else:
             error_message = "Por favor, ingrese un nombre de usuario."
