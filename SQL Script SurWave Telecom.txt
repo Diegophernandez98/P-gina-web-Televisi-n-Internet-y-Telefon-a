@@ -1,0 +1,29 @@
+INSERT INTO app_plan_internet(nombre,velocidad,precio_mensual,tiempo_contrato, descripcion)
+VALUES ('Plan S', 600, 19990, 6, '1 Router Eero Wifi 6 / Costo de Instalacion $0 / No incluye Extensor de Señal'),
+('Plan M', 800, 21990, 8, '1 Router Eero Wifi 6 / Costo de Instalacion $0 / Hasta 1 Extensor segun evaluacion tecnica),
+('Plan L', 1000, 28990, 10, '2 Router Eero Wifi 6 / Costo de Instalacion $0 /Hasta 2 Extensor segun evaluacion tecnica),
+('Plan XL', 2000, 44990, 12, '3 Router Eero Wifi 6 / Costo de Instalacion $0 /Hasta 3 Extensor segun evaluacion tecnica)
+
+
+INSERT INTO app_plan_television (nombre, precio_mensual, canales_SD, canales_HD, canales_adicionales, tiempo_contrato, tipo_television, descripcion)
+VALUES ('Plan S', 19990, 50, 10, 'HBO, Fox Premium', 12, 'Cable', 'Plan básico con canales estándar y algunos canales HD'),
+('Plan M', 24990, 100, 20, 'HBO, Fox Premium, Cinecanal', 12, 'Fibra', 'Plan intermedio con más canales y opciones HD'),
+('Plan L', 32990, 150, 30, 'HBO, Fox Premium, Cinecanal, ESPN', 24, 'Fibra', 'Plan avanzado con una amplia gama de canales y mayor duración del contrato'),
+('Plan XL', 42990, 200, 40, 'HBO, Fox Premium, Cinecanal, ESPN, National Geographic', 24, 'Fibra', 'Plan premium con la máxima cantidad de canales y una duración extendida del contrato');
+
+
+INSERT INTO app_plan_telefonia (nombre, gigas, minutos, precio_mensual, tipo_telefonia, tiempo_contrato, descripcion)
+VALUES ('Plan S', 100, 200, 9990, 'Móvil', 6, 'Plan básico con 100 GB de datos y 200 minutos'),
+('Plan M', 200, 400, 12990, 'Móvil', 8, 'Plan intermedio con 200 GB de datos y 400 minutos'),
+('Plan L', 300, 600, 14990, 'Móvil', 12, 'Plan avanzado con 300 GB de datos y 600 minutos'),
+('Plan XL', 600, 800, 16990, 'Móvil', 12, 'Plan premium con 600 GB y 800 minutos');
+
+
+INSERT INTO app_rol(nombre)
+VALUES ('Cliente'), ('Empleado'), ('Administrador');
+
+
+INSERT INTO app_usuario(rut,nombre,apellido,correo,numero,comuna,direccion,contrasena,rol_id)
+VALUES 
+('20097529-4','Diego','Hernandez','Diegophernandez98@gmail.com','+56983961097','Osorno','Matto Grosso #1259', 'Diego123@', 3),
+('21349694-8','Belén','Soto','belensotojara606@gmail.com','+56988587863','Calbuco','Cardenal Caro #141', 'Beli123@', 3);
