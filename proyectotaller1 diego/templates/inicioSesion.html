@@ -11,8 +11,8 @@
       <button type="submit">Iniciar sesión</button>
     </form>    
   
-    {% if error %}
-      <p style="color: red;">{{ error }}</p>
+    {% if error_message %}
+      <p style="color: red;">{{ error_message }}</p>
     {% endif %}
 
 {% endblock content %}

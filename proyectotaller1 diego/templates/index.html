@@ -22,10 +22,6 @@
                     <!-- Navigation Items -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'index' %}">Principal</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Acerca de Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'planes_internet' %}">Internet</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'planes_television' %}">Televisión</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'planes_telefonia' %}">Telefonía</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Preguntas Frecuentes
@@ -33,29 +29,22 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#!">Horarios de Atención</a></li>
                                 <li><a class="dropdown-item" href="#">Consultas</a></li>
+                                <li><a class="dropdown-item" href="#">Acerca de Nosotros</a></li>
+                                <li><a class="dropdown-item" href="#">Contacto</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Contacto</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Servicios
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{% url 'planes_internet' %}">Internet</a></li>
+                                <li><a class="dropdown-item" href="{% url 'planes_television' %}">Televisión</a></li>
+                                <li><a class="dropdown-item" href="{% url 'planes_telefonia' %}">Telefonía</a></li>
+                            </ul>
+                        </li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'registro' %}">Registrarse</a></li>
-                    </ul>
-                    <!-- User Account Menu -->
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="user-initials">U</span> {{rut}}
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#!">Perfil</a></li>
-                                <li><a class="dropdown-item" href="{% url 'editar_perfil' %}">Configuraciones</a></li>
-                                <li><a class="dropdown-item" href="#!">Servicios Contratados</a></li>
-                                <li><a class="dropdown-item" href="#!">Pagos</a></li>
-                                <li><a class="dropdown-item" href="#!">Boletas</a></li>
-                                <li><a class="dropdown-item" href="#!">Comentarios</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#!">Cerrar Sesión</a></li>
-                            </ul>
-                        </li>
                     </ul>
                 </div>
             </div>

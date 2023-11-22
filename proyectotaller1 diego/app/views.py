@@ -8,15 +8,23 @@ def index(request):
     sesion = request.session
    
     if "administrador" in sesion:
-        return redirect('administrador')
+        return redirect('admin_dashboard')
+    elif "cliente" in sesion:
+        return redirect('cliente_dashboard')
     else:
         return render(request, "index.html")
 
+def es_administrador(user):
+    if user.is_authenticated and user.rol_id == 2:
+        print("Verificado.")
+    else:
+        print("No verificado.")
+    return user.is_authenticated and user.rol_id == 2
 
 def listaUsuarios(request):
-    print("lista")
     listaUsuarios = Usuario.objects.all()
     return render(request, "listaUsuarios.html", {"usuarios": listaUsuarios})
+
 
 def listaPlanesInternet(request):
     listaPlanesInternet = Plan_Internet.objects.all()
@@ -108,17 +116,15 @@ def eliminarPlanTelevision(request, id):
 def cerrar_sesion(request):
     sesion = request.session
     try:
-        if "username" in sesion:
-            del sesion["username"]
+        if "cliente" in sesion:
+            del sesion["cliente"]
             del sesion["planes"]
         elif "administrador" in sesion:
             del sesion["administrador"]
-        return redirect('login')
+        return render(request, 'cerrarSesion.html')
     except:
-        return redirect('login')
+        return render(request, 'cerrarSesion.html')
     
-def es_administrador(user):
-    return user.is_authenticated and user.tipo_usuario.nombre == 'Administrador'
 
 def administrador(request):
     return render(request, "administrador.html", {"username": request.session["administrador"]})
@@ -145,13 +151,10 @@ def planXL(request):
     return render(request, "planXL.html")
 
 def cliente_dashboard(request):
-    return render(request, "cliente_dashboard.html")
+    return render(request, "cliente_dashboard.html", {"username": request.session['cliente']})
 
 def admin_dashboard(request):
-    return render(request, "admin_dashboard.html")
-
-def empleado_dashboard(request):
-    return render(request, "empleado_dashboard.html")
+    return render(request, "admin_dashboard.html",  {"username": request.session['administrador']})
 
 def enviar_comentario(request):
     return render(request, "enviar_comentario.html")
@@ -195,22 +198,23 @@ def login_view(request):
         getUsuario = request.POST.get('rut')
         getContrasena = request.POST.get('contrasena')
         usuario = Usuario.objects.filter(rut=getUsuario, 
-                                         contrasena=getContrasena).first()
+                                        contrasena=getContrasena).first()
 
-        if usuario and usuario.rol_id==1:
+        if usuario and usuario.rol.nombre == "Cliente":
             # Para agregar un valor dentro de la SESSION, lo hacemos como si fuera un diccionario
             request.session["cliente"] = getUsuario
-            print(f"El usuario {getUsuario} ha iniciado sesión.")
-            return render(request, "index.html", {'rut':getUsuario})
+            print(f"El cliente {getUsuario} ha iniciado sesión.")
+            return render(request, "cliente_dashboard.html", {'user': usuario})
         
-        elif usuario and usuario.rol_id==2:
+        elif usuario and usuario.rol.nombre == "Administrador":
             request.session["administrador"] = getUsuario
-            print(f"El usuario {getUsuario} ha iniciado sesión.")
+            print(f"El administrador {getUsuario} ha iniciado sesión.")
             return render(request, 'admin_dashboard.html',{'user':usuario})
         
         else:
-            error_message = "Por favor, ingrese un nombre de usuario."
+            error_message = "Error, verifique que los datos esten ingresados correctamente"
             return render(request, "inicioSesion.html", {"error_message": error_message})
+
 
 
 def resumen_plan_internet(request, plan_id):

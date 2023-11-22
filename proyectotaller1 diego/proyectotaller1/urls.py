@@ -22,7 +22,6 @@ urlpatterns = [
     path('confirmar_suscripcion/', views.confirmar_suscripcion, name='confirmar_suscripcion'),
     path('cliente_dashboard/', views.cliente_dashboard, name='cliente_dashboard'),
     path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
-    path('empleado_dashboard/', views.empleado_dashboard, name='empleado_dashboard'),
     path('editar_perfil/', views.editar_perfil, name="editar_perfil"),
     path('enviar_comentario/', views.enviar_comentario, name="enviar_comentario"),
     path('agregarUsuarios/', views.formUsuario, name="formUsuario"),
