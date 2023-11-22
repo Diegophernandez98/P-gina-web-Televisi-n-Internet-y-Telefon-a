@@ -20,10 +20,10 @@ VALUES ('Plan S', 100, 200, 9990, 'Móvil', 6, 'Plan básico con 100 GB de datos
 
 
 INSERT INTO app_rol(nombre)
-VALUES ('Cliente'), ('Empleado'), ('Administrador');
+VALUES ('Cliente'), ('Administrador');
 
 
 INSERT INTO app_usuario(rut,nombre,apellido,correo,numero,comuna,direccion,contrasena,rol_id)
 VALUES 
-('20097529-4','Diego','Hernandez','Diegophernandez98@gmail.com','+56983961097','Osorno','Matto Grosso #1259', 'Diego123@', 3),
-('21349694-8','Belén','Soto','belensotojara606@gmail.com','+56988587863','Calbuco','Cardenal Caro #141', 'Beli123@', 3);
+('20097529-4','Diego','Hernandez','Diegophernandez98@gmail.com','+56983961097','Osorno','Matto Grosso #1259', 'Diego123@', 2),
+('21349694-8','Belén','Soto','belensotojara606@gmail.com','+56988587863','Calbuco','Cardenal Caro #141', 'Beli123@', 2);
