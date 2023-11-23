@@ -8,18 +8,18 @@ def index(request):
     sesion = request.session
    
     if "administrador" in sesion:
-        return redirect('admin_dashboard')
+        return redirect('admin_dashboard', id=id)
     elif "cliente" in sesion:
-        return redirect('cliente_dashboard')
+        return redirect('cliente_dashboard', id=id)
     else:
         return render(request, "index.html")
 
 def es_administrador(user):
-    if user.is_authenticated and user.rol_id == 2:
+    if user.is_authenticated and user.rol.nombre == "Administrador":
         print("Verificado.")
     else:
         print("No verificado.")
-    return user.is_authenticated and user.rol_id == 2
+    return user.is_authenticated and user.rol.nombre == "Administrador"
 
 def listaUsuarios(request):
     listaUsuarios = Usuario.objects.all()
@@ -129,8 +129,25 @@ def cerrar_sesion(request):
 def administrador(request):
     return render(request, "administrador.html", {"username": request.session["administrador"]})
 
-def editar_perfil(request):
-    return render(request, 'editar_perfil.html')
+def editar_perfil(request, id):
+    usuario = Usuario.objects.get(id=id)
+    if request.method == 'GET':
+        formulario = FormUsuario(instance=usuario)
+        return render(request, 'editar_perfil.html',  {"form":formulario, 'id':id})
+    elif request.method == 'POST':
+        formulario = FormUsuario(request.POST, instance=usuario)
+        if formulario.is_valid():
+            formulario.save()
+        return render(request, 'editar_perfil.html', {'id':id})
+
+def planes_internet_cliente(request):
+    return render(request, 'planes_internet_cliente.html')
+
+def planes_telefonia_cliente(request):
+    return render(request, "planes_telefonia_cliente.html")
+
+def planes_television_cliente(request):
+    return render(request, 'planes_television_cliente.html')
 
 def planes_telefonia(request):
     return render(request, "planes_telefonia.html")
@@ -156,8 +173,8 @@ def cliente_dashboard(request):
 def admin_dashboard(request):
     return render(request, "admin_dashboard.html",  {"username": request.session['administrador']})
 
-def enviar_comentario(request):
-    return render(request, "enviar_comentario.html")
+def enviar_comentario(request, id):
+    return render(request, "enviar_comentario.html", {'id':id})
 
 def registro(request):
     if request.method == "GET":

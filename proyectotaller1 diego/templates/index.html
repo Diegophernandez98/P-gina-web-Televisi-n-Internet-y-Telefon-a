@@ -72,7 +72,6 @@
             <div class="row gx-4 gx-lg-5">
                 <div class="col-md-4 mb-5">
                     <div class="card h-100">
-                        <!-- Image for Card One -->
                         <div class="bg-dark text-white text-center py-2">Planes Internet</div>
                         <img src="{% static 'images/internet.jpg' %}" class="card-img-top" alt="...">
                         <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'planes_internet' %}">+ Internet</a></div>
@@ -80,7 +79,6 @@
                 </div>
                 <div class="col-md-4 mb-5">
                     <div class="card h-100">
-                        <!-- Image for Card Two -->
                         <div class="bg-dark text-white text-center py-2">Planes Telefonía</div>
                         <img src="{% static 'images/telefono canales.jpg' %}" class="card-img-top" alt="...">
                         <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'planes_telefonia' %}">+ Telefonía</a></div>
@@ -88,7 +86,6 @@
                 </div>
                 <div class="col-md-4 mb-5">
                     <div class="card h-100">
-                        <!-- Image for Card Three -->
                         <div class="bg-dark text-white text-center py-2">Planes Televisión</div>
                         <img src="{% static 'images/tv canales.jpg' %}" class="card-img-top" alt="...">
                         <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'planes_television' %}">+ Televisión</a></div>
@@ -97,14 +94,11 @@
             </div>
         </div>
         {% endblock content %}
-        <!-- Footer-->
         {% block footer %}
         <footer class="py-5 bg-dark">
             <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; SurWave Telecom 2023</p></div>
         </footer>
-        <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         {% endblock footer %}
     </body>

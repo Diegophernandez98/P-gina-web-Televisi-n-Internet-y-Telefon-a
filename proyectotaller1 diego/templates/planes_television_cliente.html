@@ -1,0 +1,100 @@
+{% extends "base-cliente.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Contenido específico de planesInternet.html -->
+<div class="container mt-5 mb-5">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <!-- Tarjeta 1 -->
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    Plan S
+                </div>
+                <img src="{% static 'images/S.png' %}" class="card-img-top" alt="Imagen Tarjeta 1" placeholder="Espacio para imagen">
+                <div class="card-body">
+                    <ul class="card-text">
+                        <li style="margin-bottom: 10px;">Internet Fibra
+                            600 Megas
+                            Velocidad Simétrica</li>
+                        <li style="margin-bottom: 10px;">$19.990/mes</li>
+                        <li style="margin-bottom: 10px;">Incluye 1 Router Eero Wifi 6</li>
+                        <li style="margin-bottom: 10px;">Costo de Instalación $0</li>
+                        <li style="margin-bottom: 10px;">No Incluye Extensor de Señal</li>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'resumen_plan_internet' plan_id=1 %}" class="btn btn-primary" class="btn btn-primary">Lo quiero!</a>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta 2 -->
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    Plan M
+                </div>
+                <img src="{% static 'images/M.png' %}" class="card-img-top" alt="Imagen Tarjeta 2" placeholder="Espacio para imagen">
+                <div class="card-body">
+                    <ul class="card-text">
+                        <li style="margin-bottom: 10px;">Internet Fibra
+                            800 Megas
+                            Velocidad Simétrica</li>
+                        <li style="margin-bottom: 10px;">$21.990/mes</li>
+                        <li style="margin-bottom: 10px;">1 Router Eero Amazon</li>
+                        <li style="margin-bottom: 10px;">Costo de Instalación $0</li>
+                        <li style="margin-bottom: 10px;">Hasta 1 extensor según evaluación técnica</li>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'resumen_plan_internet' plan_id=2 %}" class="btn btn-primary">Lo quiero!</a>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta 3 -->
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    Plan L
+                </div>
+                <img src="{% static 'images/L.png' %}" class="card-img-top" alt="Imagen Tarjeta 3" placeholder="Espacio para imagen">
+                <div class="card-body">
+                    <ul class="card-text">
+                        <ul class="card-text">
+                            <li style="margin-bottom: 10px;">Internet Fibra
+                                940 Megas
+                                Velocidad Simétrica</li>
+                            <li style="margin-bottom: 10px;">$28.990/mes</li>
+                            <li style="margin-bottom: 10px;">1 Router Eero Amazon</li>
+                            <li style="margin-bottom: 10px;">Costo de Instalación $0</li>
+                            <li style="margin-bottom: 10px;">Hasta 1 extensor según evaluación técnica</li>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'resumen_plan_internet' plan_id=3 %}" class="btn btn-primary text-center">Lo quiero!</a>
+                </div>
+            </div>
+        </div>
+        <!-- Tarjeta 4 -->
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-header text-center">
+                    Plan XL
+                </div>
+                <img src="{% static 'images/xl.png' %}" class="card-img-top" alt="Imagen Tarjeta 4" placeholder="Espacio para imagen">
+                <div class="card-body">
+                    <ul class="card-text">
+                        <li style="margin-bottom: 10px;">Internet Fibra
+                            2 Gigas
+                            Velocidad Simétrica</li>
+                        <li style="margin-bottom: 10px;">$50.990 /mes</li>
+                        <li style="margin-bottom: 10px;">Incluye 2 router Eero Pro Amazon</li>
+                        <li style="margin-bottom: 10px;">Costo de Instalación $0</li>
+                        <li style="margin-bottom: 10px;">Hasta 2 extensor WiFi 6 según evaluación técnica</li>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'resumen_plan_internet' plan_id=4 %}" class="btn btn-primary">Lo quiero!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
