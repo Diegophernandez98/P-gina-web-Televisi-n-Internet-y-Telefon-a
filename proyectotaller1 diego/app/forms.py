@@ -1,6 +1,12 @@
 from django import forms
 
-from app.models import Usuario, Plan_Internet, Plan_Telefonia, Plan_Television
+from app.models import Usuario, Plan_Internet, Plan_Telefonia, Plan_Television, Comentario
+
+
+class FormEditarPerfil(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['nombre', 'apellido', 'correo', 'numero', 'comuna', 'direccion', 'contrasena']
 
 class FormUsuario(forms.ModelForm):
     class Meta:
@@ -29,3 +35,8 @@ class FormUsuarioUsername(forms.ModelForm):
         widgets = {
             'id': forms.HiddenInput(),
         }
+
+class FormComentario(forms.ModelForm):
+    class Meta:
+        model = Comentario
+        fields = ['texto']

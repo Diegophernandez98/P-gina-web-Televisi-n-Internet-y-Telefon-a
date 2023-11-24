@@ -1,22 +1,27 @@
 {% extends "base-cliente.html" %}
 {% block content %}
-<div class="container mt-5">
-    <h2 class="mb-4">Comentarios y Sugerencias</h2>
-    <form method='post'>
-        <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" name='nombre' id="nombre" placeholder="Nombre">
+<h1 class="h1 bg-light text-center p-3">Enviar Comentario</h1>
+<h4 class="h4 bg-light text-center p-3">{{aceptado}}</h4>
+<div class="container">
+    <div class="card mb-3">
+        <div class="card-body">
+            
+            <form action="{% url 'enviar_comentario' %}" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="row mb-3 mx-5">
+                        {{field.errors}}
+                        {{field.label_tag}} {{field}}
+                    </div>
+                    
+                    
+                        
+                {% endfor %}
+                <div class="row mx-5"><button type="submit" class="btn btn-outline-dark">Enviar</button></div>
+            </form>
+                
         </div>
-        <div class="form-group">
-            <label for="correo">Correo</label>
-            <input type="email" class="form-control" name='correo' id="correo" placeholder="Correo">
-        </div>
-        <div class="form-group">
-            <label for="mensaje">Mensaje</label>
-            <textarea class="form-control" id="mensaje" rows="4" placeholder="Escribe tu mensaje aquí"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar Comentario</button>
-    </form>
+    </div>
 </div>
 
 <!-- Enlace a los scripts de Bootstrap y jQuery desde CDN -->

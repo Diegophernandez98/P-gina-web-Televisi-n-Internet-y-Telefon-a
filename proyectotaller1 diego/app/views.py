@@ -2,17 +2,21 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from app.forms import *
 from app.models import *
+from django.contrib.auth.hashers import make_password, check_password
 
 
 def index(request):
     sesion = request.session
    
     if "administrador" in sesion:
-        return redirect('admin_dashboard', id=id)
+        return redirect('admin_dashboard')
     elif "cliente" in sesion:
-        return redirect('cliente_dashboard', id=id)
+        return redirect('cliente_dashboard')
     else:
         return render(request, "index.html")
+    
+def autenticar(usuario, rol, pswrd):
+    return usuario and usuario.rol and usuario.rol.nombre == rol and check_password(pswrd,usuario.contrasenna)
 
 def es_administrador(user):
     if user.is_authenticated and user.rol.nombre == "Administrador":
@@ -81,7 +85,6 @@ def editar_usuario(request,id):
     usuario = Usuario.objects.get(id=id)
     if request.method == 'GET':
         formulario = FormUsuario(instance=usuario)
-
         return render(request, 'editar_usuario.html',  {"form":formulario, "id": id})
     elif request.method == 'POST':
         formulario = FormUsuario(request.POST, instance=usuario)
@@ -129,17 +132,6 @@ def cerrar_sesion(request):
 def administrador(request):
     return render(request, "administrador.html", {"username": request.session["administrador"]})
 
-def editar_perfil(request, id):
-    usuario = Usuario.objects.get(id=id)
-    if request.method == 'GET':
-        formulario = FormUsuario(instance=usuario)
-        return render(request, 'editar_perfil.html',  {"form":formulario, 'id':id})
-    elif request.method == 'POST':
-        formulario = FormUsuario(request.POST, instance=usuario)
-        if formulario.is_valid():
-            formulario.save()
-        return render(request, 'editar_perfil.html', {'id':id})
-
 def planes_internet_cliente(request):
     return render(request, 'planes_internet_cliente.html')
 
@@ -173,8 +165,31 @@ def cliente_dashboard(request):
 def admin_dashboard(request):
     return render(request, "admin_dashboard.html",  {"username": request.session['administrador']})
 
-def enviar_comentario(request, id):
-    return render(request, "enviar_comentario.html", {'id':id})
+def editar_perfil(request,id):
+    usuario = Usuario.objects.filter(id=id).first()
+    if request.method == 'GET':
+        formulario = FormEditarPerfil(instance=usuario)
+        return render(request, 'editar_perfil.html',  {"form":formulario, 'user':usuario})
+    elif request.method == 'POST':
+        formulario = FormEditarPerfil(request.POST, instance=usuario)
+        if formulario.is_valid():
+            formulario.save()
+        return render(request, 'editar_perfil.html',  {"form":formulario, 'user':usuario})
+
+def enviar_comentario(request):
+    if request.method == 'GET':
+        formulario = FormComentario()
+        return render(request, 'enviar_comentario.html', {'form':formulario})
+    elif request.method == 'POST':
+        formulario = FormComentario(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, 'Comentario enviado exitosamente.')
+            return render(request, "enviar_comentario.html", {'aceptado': 'Comentario enviado exitosamente.', 'form':formulario})
+        else:
+            messages.error(request, 'Error. Verifique que los datos ingresados sean correctos.')
+            return render(request, "enviar_comentario.html", {'error': 'Verifique que los datos ingresados sean correctos.', 'form':formulario})
+    
 
 def registro(request):
     if request.method == "GET":

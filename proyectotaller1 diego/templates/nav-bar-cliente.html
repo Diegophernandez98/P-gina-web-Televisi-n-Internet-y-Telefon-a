@@ -24,14 +24,17 @@
                         <li><a class="dropdown-item" href="{% url 'planes_telefonia_cliente' %}">Telefonía</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#">Editar Datos de Cuenta</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'enviar_comentario' id %}">Enviar Comentarios</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'cerrar_sesion' %}">Cerrar Sesion</a></li>
-                <ul>
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="user-initials">{{user.nombre}} {{user.apellido}}</span>
+                        <span class="user-initials"></span>{{user.nombre}} {{user.apellido}}
                     </a>
-                </ul>
+                    
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'editar_perfil' user.id %}">Editar Datos de Cuenta</a></li>
+                        <li><a class="dropdown-item" href="{% url 'enviar_comentario' %}">Enviar Comentarios</a></li>  
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
