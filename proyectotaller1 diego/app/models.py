@@ -73,3 +73,9 @@ class Comentario(models.Model):
     cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=False)
     texto = models.TextField(null=False)
     fecha = models.DateField(null=False)
+
+class Fecha_Inicio(models.Model):
+    cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=False, default=9999999)
+    fecha_inicio = models.DateField(null=False)
+    
+
