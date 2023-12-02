@@ -47,6 +47,5 @@ urlpatterns = [
     path('formPlanTelefonia/', views.formPlanTelefonia, name='formPlanTelefonia'),
     path('formPlanTelevision/', views.formPlanTelevision, name='formPlanTelevision'),
     path('formPlanInternet/', views.formPlanInternet, name='formPlanInternet'),
-
-
+    path('suscripciones/', views.suscripciones, name='suscripciones'),
 ]

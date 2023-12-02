@@ -1,0 +1,37 @@
+{% extends 'base-admin.html' %}
+
+{% block content %}
+  <h2>Filtro</h2>
+  <form method="post" action="{% url 'suscripciones' %}">
+    {% csrf_token %}
+    <label for="fecha_inicio">Fecha de inicio:</label>
+    <input type="date" id="fecha_inicio" name="fecha_inicio" required>
+    
+    <label for="fecha_fin">Fecha de fin:</label>
+    <input type="date" id="fecha_fin" name="fecha_fin" required>
+
+    <label for="tipo_servicio">Tipo de Servicio:</label>
+    <select id="tipo_servicio" name="tipo_servicio">
+      <option value="Todos">Todos</option>
+      <option value="Internet">Internet</option>
+      <option value="Televisión">Televisión</option>
+      <option value="Telefonía">Telefonía</option>
+    </select>
+
+    <label for="tamano_plan">Tamaño de Plan:</label>
+    <select id="tamano_plan" name="tamano_plan">
+      <option value="Todos">Todos</option>
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <button type="submit">Generar Gráfico</button>
+  </form>
+  {{error_message}}
+  {% if image_data %}
+    <h2>Estadísticas</h2>
+    <img src="data:image/png;base64,{{ image_data }}" alt="Gráfico">
+  {% endif %}
+{% endblock %}

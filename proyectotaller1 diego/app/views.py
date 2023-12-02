@@ -3,7 +3,12 @@ from django.contrib import messages
 from app.forms import *
 from app.models import *
 from django.contrib.auth.hashers import make_password, check_password
-
+from django.db.models import Count
+from django.utils.dateparse import parse_date
+import matplotlib.pyplot as plt
+from io import BytesIO
+import base64
+from datetime import datetime, timedelta
 
 def index(request):
     sesion = request.session
@@ -309,3 +314,63 @@ def formPlanTelefonia(request):
         if form.is_valid():
             form.save()
         return render(request, 'agregarPlanTelefonia.html', {"form": form})
+    
+def suscripciones(request):
+    planes = Tipo_Plan.objects.all()
+    image_data = None
+
+    if request.method == 'POST':
+        fecha_inicio = parse_date(request.POST['fecha_inicio'])
+        fecha_fin = parse_date(request.POST['fecha_fin'])
+
+        if fecha_inicio > fecha_fin:
+            error_message = "La fecha Minima no puede ser Mayor a la Máxima."
+            return render(request, 'suscripcion.html', {'error_message': error_message})
+
+        tipo_servicio = request.POST['tipo_servicio']
+        tamano_plan = request.POST['tamano_plan']
+
+        suscripciones = Suscripcion.objects.filter(fecha_iniciacion__range=[fecha_inicio, fecha_fin])
+        if tipo_servicio != 'Todos':
+            suscripciones = suscripciones.filter(
+                tipo_plan__telefonia__isnull=tipo_servicio != 'Telefonía',
+                tipo_plan__internet__isnull=tipo_servicio != 'Internet',
+                tipo_plan__television__isnull=tipo_servicio != 'Televisión'
+            )
+
+        if tamano_plan != 'Todos':
+            if tamano_plan == 'Todos':
+                suscripciones = suscripciones.filter(
+                    tipo_plan__telefonia__isnull=False,
+                    tipo_plan__internet__isnull=False,
+                    tipo_plan__television__isnull=False
+                )
+            else:
+                suscripciones = suscripciones.filter(
+                    tipo_plan__telefonia__nombre__in=[tamano_plan],
+                    tipo_plan__internet__nombre__in=[tamano_plan],
+                    tipo_plan__television__nombre__in=[tamano_plan]
+                )
+
+        # aqui se hace el gafico
+        data = suscripciones.values('fecha_iniciacion').annotate(total=Count('id'))
+
+        fechas = [entry['fecha_iniciacion'].strftime('%Y-%m-%d') for entry in data]
+        valores = [entry['total'] for entry in data]
+
+        plt.figure(figsize=(10, 5))
+        plt.bar(fechas, valores)
+        plt.title('Usuarios por día que contrataron el plan {} de {}'.format(tamano_plan, tipo_servicio))
+        plt.xlabel('Fecha')
+        plt.ylabel('Cantidad de Usuarios')
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+
+        image_stream = BytesIO()
+        plt.savefig(image_stream, format='png')
+        plt.close()
+
+        image_stream.seek(0)
+        image_data = base64.b64encode(image_stream.read()).decode('utf-8')
+
+    return render(request, 'suscripcion.html', {'image_data': image_data, 'planes': planes})
