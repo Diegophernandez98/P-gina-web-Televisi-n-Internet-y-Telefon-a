@@ -13,6 +13,7 @@
                     <th scope="col">Numero</th>
                     <th scope="col">Comuna</th>
                     <th scope="col">Direccion</th>
+                    <th scope="col">Fecha de Ingreso</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
@@ -26,6 +27,7 @@
                     <td>{{u.numero}}</td>
                     <td>{{u.comuna}}</td>
                     <td>{{u.direccion}}</td>
+                    <td>{{u.fecha_ingreso}}</td>
                     <td>
                         <a href="/editar_usuario/{{u.id}}" class="btn btn-success">Editar</a>
                         <a href="/eliminarUsuario/{{u.id}}" class="btn btn-danger">Eliminar</a>

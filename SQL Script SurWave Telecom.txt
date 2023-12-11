@@ -1,5 +1,5 @@
-INSERT INTO app_plan_internet(nombre,velocidad,precio_mensual,tiempo_contrato, descripcion)
-VALUES ('Plan S', 600, 19990, 6, '1 Router Eero Wifi 6 / Costo de Instalacion $0 / No incluye Extensor de Señal'),
+INSERT INTO app_plan_internet(nombre,descripcion,valor_mensual,adicional, instalacion, extensor)
+VALUES ('Plan S',' 1 Router Eero Wifi 6', 19990, 6, '', '0' / No incluye Extensor de Señal'),
 ('Plan M', 800, 21990, 8, '1 Router Eero Wifi 6 / Costo de Instalacion $0 / Hasta 1 Extensor segun evaluacion tecnica),
 ('Plan L', 1000, 28990, 10, '2 Router Eero Wifi 6 / Costo de Instalacion $0 /Hasta 2 Extensor segun evaluacion tecnica),
 ('Plan XL', 2000, 44990, 12, '3 Router Eero Wifi 6 / Costo de Instalacion $0 /Hasta 3 Extensor segun evaluacion tecnica)
@@ -23,10 +23,10 @@ INSERT INTO app_rol(nombre)
 VALUES ('Cliente'), ('Administrador');
 
 
-INSERT INTO app_usuario(rut,nombre,apellido,correo,numero,comuna,direccion,contrasena,rol_id)
+INSERT INTO app_usuario(rut,nombre,apellido,correo,numero,comuna,direccion,contrasena,rol_id,fecha_ingreso)
 VALUES 
-('20097529-4','Diego','Hernandez','Diegophernandez98@gmail.com','+56983961097','Osorno','Matto Grosso #1259', 'Diego123@', 2),
-('21349694-8','Belén','Soto','belensotojara606@gmail.com','+56988587863','Calbuco','Cardenal Caro #141', 'Beli123@', 2);
+('20097529-4','Diego','Hernandez','Diegophernandez98@gmail.com','+56983961097','Osorno','Matto Grosso #1259', 'Diego123@', 2, '2023-08-01'),
+('21349694-8','Belén','Soto','belensotojara606@gmail.com','+56988587863','Calbuco','Cardenal Caro #141', 'Beli123@', 2, '2023-08-01');
 
 insert into app_usuario (rut, nombre, apellido, correo, numero, comuna, direccion, contrasena, rol_id) values ('154068993-X', 'Fanni', 'Deverell', 'fdeverell0@patch.com', '+352 624 545 4970', 'Stadtbredimus', '8 Cottonwood Place', 'bc1df0e6b8598f9448f339b0d33fcf39', 1);
 insert into app_usuario (rut, nombre, apellido, correo, numero, comuna, direccion, contrasena, rol_id) values ('147491548-5', 'Teressa', 'Creasy', 'tcreasy1@privacy.gov.au', '+234 485 366 3506', 'Ochobo', '55488 Shoshone Hill', '5e5fe486d526197eede652364d59fbd4', 1);

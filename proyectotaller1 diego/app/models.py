@@ -14,20 +14,20 @@ class Usuario(models.Model):
     direccion = models.CharField(max_length=100, null=False)
     contrasena = models.CharField(max_length=50, default='123', null=False)
     rol = models.ForeignKey(Rol, on_delete=models.CASCADE, null=False, blank=True, default=9999999)
-    fecha_ingreso = models.DateTimeField(null=False)
+    fecha_ingreso = models.DateField(null=False)
 
 class Plan_Internet(models.Model):
     nombre = models.CharField(max_length=50, null=False)
     descripcion = models.CharField(max_length=255, default='default')
-    valor_mensual = models.CharField(max_length=10, default='default')
+    valor_mensual = models.IntegerField(null=False)
     adicional = models.CharField(max_length=50, null=False, default='default')
-    instalacion = models.CharField(max_length=50, null=False, default='default')
+    instalacion = models.IntegerField(null=False)
     extensor = models.CharField(max_length=50, null=False, default='default')
 
 class Plan_Television(models.Model):
     nombre = models.CharField(max_length=50, null=False)
     descripcion = models.CharField(max_length=255, default='default')
-    valor_mensual = models.CharField(max_length=10, default='default')
+    valor_mensual = models.IntegerField(null=False)
     adicional = models.CharField(max_length=50, null=False, default='default')
     Asistencia = models.CharField(max_length=50, null=False, default='default')
     extras = models.CharField(max_length=50, null=False, default='default')
@@ -36,7 +36,7 @@ class Plan_Television(models.Model):
 class Plan_Telefonia(models.Model):
     nombre = models.CharField(max_length=50, null=False)
     descripcion = models.CharField(max_length=255, default='default')
-    valor_mensual = models.CharField(max_length=10, default='default')
+    valor_mensual = models.IntegerField(null=False)
     adicional = models.CharField(max_length=50, null=False, default='default')
     extras = models.CharField(max_length=50, null=False, default='default')
     roaming = models.CharField(max_length=50, null=False, default='default')
@@ -47,14 +47,9 @@ class Tipo_Plan(models.Model):
     television = models.ForeignKey(Plan_Television, on_delete=models.CASCADE, null=False)
 
 class Suscripcion(models.Model):
-    ESTADO_CHOICES = [
-        ('activo', 'Activo'),
-        ('inactivo', 'Inactivo'),
-        ('suspendido', 'Suspendido'),
-    ]
     cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=False)
-    fecha_iniciacion = models.DateTimeField(null=False)
-    estado = models.CharField(max_length=10, choices=ESTADO_CHOICES, null=False)
+    fecha_iniciacion = models.DateField(null=False)
+    estado = models.BooleanField(null=False)
     tipo_plan = models.ForeignKey(Tipo_Plan, on_delete=models.CASCADE, default=1)
 
     def obtener_tipo_servicio(self):
@@ -79,8 +74,8 @@ class Descuento(models.Model):
 class Boleta(models.Model):
     cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=False, default=9999999)
     suscripcion = models.ForeignKey(Suscripcion, on_delete=models.CASCADE, null=False)
-    fecha_emision = models.DateTimeField(null=False)
-    fecha_vencimiento = models.DateTimeField(null=False)
+    fecha_emision = models.DateField(null=False)
+    fecha_vencimiento = models.DateField(null=False)
     detalles = models.CharField(max_length=255, null=False)
     valor = models.DecimalField(max_digits=10, decimal_places=2, null=False)
     valor_con_descuento = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=9999999)
@@ -92,4 +87,4 @@ class Boleta(models.Model):
 class Comentario(models.Model):
     cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=False)
     texto = models.TextField(null=False)
-    fecha = models.DateTimeField(null=False)
+    fecha = models.DateField(null=False)

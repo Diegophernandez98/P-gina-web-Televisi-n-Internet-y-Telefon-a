@@ -12,6 +12,11 @@ class FormUsuario(forms.ModelForm):
     class Meta:
         model = Usuario
         fields = '__all__'
+
+class FormEditarUsuario(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['rut', 'nombre', 'apellido', 'correo', 'numero', 'comuna', 'direccion', 'contrasena','rol', 'fecha_ingreso']
         
 class FormPlanInternet(forms.ModelForm):
     class Meta:
